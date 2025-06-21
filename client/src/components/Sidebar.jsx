@@ -17,12 +17,11 @@ const Sidebar = ({ selectedTab, onSelectTab }) => {
     // TODO: Add logout logic here
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/logout");
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`);
       navigate("/");
     } catch (error) {
       console.log(`Error Logging Out --- ${error}`);
     }
-    // window.location.href = "http://localhost:5000/api/auth/google";
   };
 
   const tabItems = [

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
+// IG & FB dummy data
 import { DUMMY_MESSAGES } from "../data/dummyMessages";
 
 const Dashboard = () => {
@@ -22,7 +23,7 @@ const Dashboard = () => {
     const fetchGmail = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/auth/fetchGmailMessages",
+          `${import.meta.env.VITE_API_BASE_URL}/api/auth/fetchGmailMessages`,
           {
             withCredentials: true,
           }
@@ -50,7 +51,9 @@ const Dashboard = () => {
   }, [gmailConnected]);
 
   const handleGmailLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${
+      import.meta.env.VITE_API_BASE_URL
+    }/api/auth/google`;
   };
 
   const getMessages = () => {

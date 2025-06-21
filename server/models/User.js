@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { type } from "os";
+
 
 // Create schema
 const userSchema = new mongoose.Schema({

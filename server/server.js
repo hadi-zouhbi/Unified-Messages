@@ -39,5 +39,5 @@ app.use('api/auth', checkTokenRoute)
 
 // Run Server
 app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`)
+    console.log(`Server is running on ${PORT}, Thank you`)
 })

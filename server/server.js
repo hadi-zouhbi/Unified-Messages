@@ -18,7 +18,7 @@ connectDb()
 
 // Middleware
 app.use(cors({
-    origin: " https://https://inboxfusion.netlify.app/ ",
+    origin: "/https://inboxfusion.netlify.app/ ",
     credentials: true
 }));
 app.use(express.json())

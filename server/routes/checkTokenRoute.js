@@ -1,5 +1,4 @@
 import express from "express";
-import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -11,7 +10,6 @@ router.get("/checkToken", async (req, res) => {
       return res.status(401).json({ loggedIn: false });
     }
 
-    // Get user from token or DB
     const user = await User.findOne({ googleRefreshToken: token });
 
     if (!user) {

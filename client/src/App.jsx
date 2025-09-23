@@ -1,4 +1,3 @@
-// src/SignInForm.jsx
 import React from "react";
 import SignUpForm from "./pages/SignUpForm";
 import LoginForm from "./pages/LoginForm";
@@ -20,7 +19,7 @@ function App() {
               path="/dashboard"
               element={
                 <PrivateRoute>
-                  {/* Protects the Dashboard route from users not logged In */}
+                  {/* Protected routes */}
                   <Dashboard />
                 </PrivateRoute>
               }

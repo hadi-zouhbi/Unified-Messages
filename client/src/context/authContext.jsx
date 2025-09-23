@@ -9,13 +9,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Add login function
+  // Login function
   const login = (userData) => {
     setIsLoggedIn(true);
     setUser(userData);
   };
 
-  // ✅ Optionally add logout
+  // Logout
   const logout = () => {
     setIsLoggedIn(false);
     setUser(null);

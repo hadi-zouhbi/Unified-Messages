@@ -17,11 +17,11 @@ const fetchGmailMessages = async (req, res) => {
         process.env.GOOGLE_REDIRECT_URI
     )
 
-    // Get a new access token form google
+    // Getting new access token
     const {tokens} = await oauth2Client.refreshToken(refreshToken)
     const accessToken = tokens.access_token
 
-    // Make the API Call to fetch messages
+    // Fetching msgs
     try {
         const feedRes = await axios.get("https://mail.google.com/mail/feed/atom", {
             headers: {
@@ -42,8 +42,6 @@ const fetchGmailMessages = async (req, res) => {
             content: entry.summary || "No content available",
             unread: true
         }))
-
-        // res.json({messages})
         res.json({messages})
     } catch (error) {
         console.log(`Could not fetch messages ---- ${error}`)

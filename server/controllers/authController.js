@@ -30,7 +30,7 @@ try {
     // Saving the user to db 
     await newUser.save()
 
-    // Final Success response
+    // Response
     res.status(201).json({message: "User Created Successfully"})
 } catch (error) {
     console.log(`Error Occured In SignUP---- ${error}`)
@@ -39,8 +39,6 @@ try {
 
 const login = async (req, res) => {
     const{email, password} = req.body
-
-    // Extra Check
     if(!email || !password) {
         return res.status(400).json({message: "Email and password are required."})
     }
@@ -52,7 +50,7 @@ const login = async (req, res) => {
             return res.status(400).json({message: "Invalid email or password."})
         }
 
-        // Compare the password to the hashed one in the db
+        // Comparing password to database
         const isMatch = await bcrypt.compare(password, user.hashedPassword)
         if(!isMatch) {
             return res.status(400).json({message: "Invalid email or password."})

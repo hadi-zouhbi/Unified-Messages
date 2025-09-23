@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-// Create schema
+// Schema
 const userSchema = new mongoose.Schema({
     email: {
         required: true,
@@ -32,5 +32,5 @@ const userSchema = new mongoose.Schema({
 // Model
 const User = mongoose.model('User', userSchema)
 
-// Export
+
 export default User

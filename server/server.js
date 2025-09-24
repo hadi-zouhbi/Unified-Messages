@@ -18,7 +18,7 @@ connectDb()
 
 // Middleware
 app.use(cors({
-    origin: "https://unifiedmessages.netlify.app/ ",
+    origin: "https://unifiedmessages.netlify.app",
     credentials: true
 }));
 app.use(express.json())

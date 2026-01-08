@@ -17,9 +17,14 @@ const PORT = process.env.PORT || 5000
 connectDb()
 
 // Middleware
+const allowedOrigins = [
+    "https://unifiedmessages.netlify.app",
+    "http://localhost:5173"
+]
 app.use(cors({
-    origin: "https://unifiedmessages.netlify.app",
-    credentials: true
+    origin: (origin , callback) => 
+        callback(!origin , allowedOrigins.includes(origin)),
+        credentials:true
 }));
 app.use(express.json())
 app.use(cookieParser())

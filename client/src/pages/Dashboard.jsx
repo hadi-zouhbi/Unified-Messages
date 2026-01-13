@@ -73,7 +73,7 @@ const Dashboard = () => {
     }));
 
     if (selectedSource === "All") {
-      return [...gmail, ...instagram];
+      return [...gmail, ...instagram, ...facebook];
     } else if (selectedSource === "Gmail") {
       return gmail;
     } else if (selectedSource === "Instagram") {

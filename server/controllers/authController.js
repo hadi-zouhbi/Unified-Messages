@@ -38,6 +38,9 @@ try {
 }
 
 const login = async (req, res) => {
+     console.log("📥 Request body:", req.body); // ADD THIS LINE
+    console.log("📧 Email:", req.body.email); // ADD THIS LINE
+    console.log("🔑 Password:", req.body.password); // ADD THIS LINE
     const{email, password} = req.body
     if(!email || !password) {
         return res.status(400).json({message: "Email and password are required."})

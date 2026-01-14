@@ -41,6 +41,8 @@ const LoginForm = () => {
   };
 
   const handleGoogleLogin = () => {
+     console.log("🔍 API Base URL:", import.meta.env.VITE_API_BASE_URL);
+  console.log("🔍 Full Google Auth URL:", `${import.meta.env.VITE_API_BASE_URL}/api/auth/google`);
     window.location.href = `${
       import.meta.env.VITE_API_BASE_URL
     }/api/auth/google`;

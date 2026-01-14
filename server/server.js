@@ -22,9 +22,17 @@ const allowedOrigins = [
     "http://localhost:5173"
 ]
 app.use(cors({
-    origin: (origin , callback) => 
-        callback(!origin , allowedOrigins.includes(origin)),
-        credentials:true
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, Postman, or server-to-server)
+        if (!origin) return callback(null, true);
+        
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
 }));
 app.use(express.json())
 app.use(cookieParser())
@@ -40,7 +48,7 @@ app.use('/api/auth', authRoutes)
 // Google Routes
 app.use('/api/auth', googleRoutes)
 
-app.use('api/auth', checkTokenRoute)
+app.use('/api/auth', checkTokenRoute)
 
 // Run Server
 app.listen(PORT, () => {

@@ -15,6 +15,14 @@ const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI
 
 const googleOuthConsent = (req,res) => {
+  if (!CLIENT_ID || !REDIRECT_URI) {
+        console.error("❌ Missing Google OAuth credentials");
+        console.log("CLIENT_ID:", CLIENT_ID ? "Set" : "MISSING");
+        console.log("REDIRECT_URI:", REDIRECT_URI ? "Set" : "MISSING");
+        return res.status(500).json({ 
+            message: "Server configuration error" 
+        });
+    }
     const params = querystring.stringify({
         client_id: CLIENT_ID,
         redirect_uri: REDIRECT_URI,

@@ -101,7 +101,8 @@ const googleCallback = async (req, res) => {
     // res.redirect(`${process.env.CLIENT_URL}/dashboard?gmailConnected=true`);
     res.redirect(`${process.env.CLIENT_URL}/dashboard?gmailConnected=true`);
   } catch (error) {
-    console.error("❌ Google login failed:", error);
+     console.error("❌ Google login failed at:", error.message);
+        console.error("❌ Full error:", error.response?.data || error);
     return res.redirect(`${process.env.CLIENT_URL}/login?error=oauth_failed`);
   }
 }

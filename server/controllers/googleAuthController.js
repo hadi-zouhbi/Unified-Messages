@@ -85,8 +85,8 @@ const googleCallback = async (req, res) => {
     // 5. Set cookies
     res.cookie("accessToken", customAccessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "Lax",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
       maxAge: 60 * 60 * 1000, // 1 hour
     });
 

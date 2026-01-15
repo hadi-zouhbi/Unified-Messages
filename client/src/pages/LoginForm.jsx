@@ -3,6 +3,7 @@ import MainBtn from "../components/MainBtn";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/authContext";
+import AlertBar from "../components/AlertBar";
 
 const LoginForm = () => {
   const { login } = useContext(AuthContext);
@@ -54,6 +55,8 @@ const LoginForm = () => {
   };
 
   return (
+    <>
+    <AlertBar />
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">
@@ -128,6 +131,7 @@ const LoginForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

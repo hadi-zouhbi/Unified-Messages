@@ -4,6 +4,10 @@ import {google} from 'googleapis'
 
 
 const fetchGmailMessages = async (req, res) => {
+    console.log("========== FETCH GMAIL CALLED ==========");
+    console.log("🍪 All cookies:", req.cookies);
+    console.log("🔑 RefreshToken exists:", !!req.cookies.refreshToken);
+    console.log("🔑 RefreshToken value:", req.cookies.refreshToken ? "Present (hidden)" : "MISSING");
     const refreshToken = req.cookies.refreshToken
 
     if(!refreshToken) {
